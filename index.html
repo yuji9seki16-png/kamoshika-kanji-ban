@@ -71,6 +71,7 @@
       letter-spacing: .1em; background: rgba(255,255,255,.05); padding: 8px 24px;
       border-radius: 30px; border: 1px solid rgba(255,255,255,.1); text-align: center; white-space: pre-line;
     }
+    .detail-sub small { display: block; margin-top: 6px; font-size: .7em; color: #888; letter-spacing: .08em; }
     .hint { position: absolute; top: 20px; right: 30px; font: 14px/1 sans-serif; color: #555; }
     @media (max-width: 650px) {
       .intro { overflow: auto; } .intro-inner { position: static; width: auto; transform: none !important; padding: 28px 20px; } .intro-top { grid-template-columns: 1fr; } .timeline-grid { grid-template-columns: 1fr; }
@@ -121,7 +122,7 @@
     <button class="card" onclick="openDetail('音', 'ドラム・リズム・コミュニケーション')"><span class="kanji">音</span><span class="label">リズム</span></button>
     <button class="card" onclick="openDetail('型', 'まずやってみる ＞ 原理原則 ＞ 展開')"><span class="kanji">型</span><span class="label">学びと仕事</span></button>
     <button class="card" onclick="openDetail('問', '「なんで？」を繰り返し遊ぶように働く\n問いの源泉＝動機の源流')"><span class="kanji">問</span><span class="label">問い</span></button>
-    <button class="card" onclick="openDetail('遊', 'ちゃんと遊ばないと、分けられる喜びが溜まらない（妻注意）')"><span class="kanji">遊</span><span class="label">遊び</span></button>
+    <button class="card" onclick="openDetail('遊', 'ちゃんと遊ばないと、分けられる喜びが溜まらない（妻注意）', '', '2026年は 綿棒アート・流域研究')"><span class="kanji">遊</span><span class="label">遊び</span></button>
   </main>
   <section class="detail-view" id="detail" onclick="closeDetail()" aria-live="polite">
     <div class="hint">タップで戻る</div>
@@ -129,11 +130,13 @@
     <div class="detail-sub" id="detailSub">サブタイトル</div>
   </section>
   <script>
-    function openDetail(kanji, sub, ruby) {
+    function openDetail(kanji, sub, ruby, note) {
       const k = document.getElementById('detailKanji');
       k.textContent = kanji;
       if (ruby) k.innerHTML = '<ruby>' + kanji + '<rt>' + ruby + '</rt></ruby>';
-      document.getElementById('detailSub').textContent = sub;
+      const s = document.getElementById('detailSub');
+      s.textContent = sub;
+      if (note) { const n = document.createElement('small'); n.textContent = note; s.appendChild(n); }
       document.getElementById('detail').classList.add('active');
     }
     function fitIntro() {
