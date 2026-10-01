@@ -13,13 +13,13 @@
     }
     .intro {
       position: fixed; inset: 0; z-index: 200; overflow: auto;
-      display: flex; align-items: center; justify-content: center; padding: 4vh 6vw;
+      display: flex; align-items: flex-start; justify-content: center; padding: 4vh 6vw;
       background: radial-gradient(circle at 85% 12%, #ffdf82 0 7%, transparent 7.2%),
                   radial-gradient(circle at 9% 86%, #fa8d80 0 10%, transparent 10.2%), #fff8e9;
       color: #24201b; transition: opacity .35s ease, transform .35s ease;
     }
     .intro.hidden { opacity: 0; pointer-events: none; transform: scale(1.02); }
-    .intro-inner { width: min(1120px, 100%); }
+    .intro-inner { width: min(1120px, 100%); margin: auto 0; }
     .intro-kicker { color: #e5493d; font: 700 clamp(13px, 1.5vw, 18px)/1 sans-serif; letter-spacing: .16em; }
     .intro h1 { margin: 8px 0 18px; font-size: clamp(42px, 6vw, 82px); line-height: 1; letter-spacing: .07em; }
     .intro h1 small { display: block; margin-top: 12px; color: #e5493d; font: 700 clamp(15px, 1.8vw, 23px)/1 sans-serif; letter-spacing: .12em; }
